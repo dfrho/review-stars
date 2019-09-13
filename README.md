@@ -6,27 +6,27 @@ Here's the heart of the code, where we determine the number of full stars, empty
 
 ```JSX
 const renderStars = (rating, maxRating) => {
-		const baseRating = basify(rating),
-			hasPartialStar = rating % 1 > 0,
-			fullStars = Array.from(new Array(baseRating), (star, i) => <Star key={i}>★</Star>),
-			emptyStarCount = rating >= maxRating - 1 ? 0 : maxRating - baseRating - 1,
-			emptyStars = Array.from(new Array(emptyStarCount), (star, i) => <Star key={i}>☆</Star>);
+  const baseRating = basify(rating),
+    hasPartialStar = rating % 1 > 0,
+    fullStars = Array.from(new Array(baseRating), (star, i) => <Star key={i}>★</Star>),
+    emptyStarCount = rating >= maxRating - 1 ? 0 : maxRating - baseRating - 1,
+    emptyStars = Array.from(new Array(emptyStarCount), (star, i) => <Star key={i}>☆</Star>);
 
-		return (
-			<React.Fragment>
-				<figure style={{ display: 'flex' }}>
-					{fullStars.map(star => star)}
-					{hasPartialStar && (
-						<PartialStarContainer>
-							<PartialStar percent={ratingPercent(rating % 1, 1)}>★</PartialStar>
-							<Star>☆</Star>
-						</PartialStarContainer>
-					)}
-					{emptyStars.length > 0 && emptyStars.map(star => star)}
-				</figure>
-			</React.Fragment>
-		);
-  };
+  return (
+    <React.Fragment>
+      <figure style={{ display: 'flex' }}>
+        {fullStars.map(star => star)}
+        {hasPartialStar && (
+          <PartialStarContainer>
+            <PartialStar percent={ratingPercent(rating % 1, 1)}>★</PartialStar>
+            <Star>☆</Star>
+          </PartialStarContainer>
+        )}
+        {emptyStars.length > 0 && emptyStars.map(star => star)}
+      </figure>
+    </React.Fragment>
+  );
+};
 ```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

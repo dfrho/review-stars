@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import * as mockReviews from '../mockReviews.json';
 
 const TOTAL_MOCK_REVIEWS = 100;
